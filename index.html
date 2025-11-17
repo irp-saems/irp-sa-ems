@@ -506,6 +506,21 @@
       overflow: hidden;
     }
 
+    .coc-group {
+      margin-bottom: 1.75rem;
+    }
+
+    .coc-group-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--accent-gold);
+      margin-bottom: 0.7rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      padding-bottom: 0.25rem;
+    }
+
+
     .coc-rank {
       font-size: 0.78rem;
       letter-spacing: 0.22em;
@@ -961,75 +976,103 @@
         </div>
       </section>
 
+            <!-- CHAIN OF COMMAND -->
       <section id="coc">
         <div class="section-header">
           <h3>Chain of Command</h3>
           <p>
-            Respecting the chain of command ensures safe, coordinated operations. Use this as a
-            reference for supervision, approvals and complaint routing. Edit these names and roles
-            in the HTML as your structure changes.
+            SA-EMS leadership is structured into Commissioners, High Command and Command staff.
+            Use this as a quick reference for who is responsible for policy, operations and shift
+            management.
           </p>
         </div>
 
-        <div class="coc-grid">
-          <div class="coc-card">
-            <span class="coc-rank">Chief of EMS</span>
-            <div class="coc-name">[Name Here]</div>
-            <div class="coc-meta">
-              Overall command of SA-EMS. Sets policy, approves SOPs, oversees division leadership and
-              inter-agency relations.
+        <!-- COMMISSIONERS -->
+        <div class="coc-group">
+          <h4 class="coc-group-title">Commissioners</h4>
+          <div class="coc-grid">
+            <div class="coc-card">
+              <span class="coc-rank">EMS Commissioner</span>
+              <div class="coc-name">P. Kage</div>
+              <div class="coc-meta">
+                Overseeing all SA-EMS policy and department direction.
+              </div>
+              <span class="coc-pill">Badge E-100</span>
             </div>
-            <span class="coc-pill">Executive</span>
-          </div>
 
-          <div class="coc-card">
-            <span class="coc-rank">Deputy Chief</span>
-            <div class="coc-name">[Name Here]</div>
-            <div class="coc-meta">
-              Manages daily operations, oversees battalion captains, training and quality assurance.
+            <div class="coc-card">
+              <span class="coc-rank">EMS Commissioner</span>
+              <div class="coc-name">Blank</div>
+              <div class="coc-meta">
+                Overseeing all SA-EMS policy and department direction.
+              </div>
+              <span class="coc-pill">Badge E-101</span>
             </div>
-            <span class="coc-pill">Operations</span>
           </div>
+        </div>
 
-          <div class="coc-card">
-            <span class="coc-rank">Battalion Captain</span>
-            <div class="coc-name">[Name Here]</div>
-            <div class="coc-meta">
-              Responsible for shift coverage, station assignments and major incident command.
+        <!-- HIGH COMMAND -->
+        <div class="coc-group">
+          <h4 class="coc-group-title">High Command</h4>
+          <div class="coc-grid">
+            <div class="coc-card">
+              <span class="coc-rank">EMS Chief</span>
+              <div class="coc-name">D. Burns</div>
+              <div class="coc-meta">
+                Overall head of daily operations, coordinating divisions, supervisors and major
+                incidents across the state.
+              </div>
+              <span class="coc-pill">Badge EC-01</span>
             </div>
-            <span class="coc-pill">Shift Lead</span>
+
+            <div class="coc-card">
+              <span class="coc-rank">EMS Assistant Chief</span>
+              <div class="coc-name">Blank</div>
+              <div class="coc-meta">
+                Assists the Chief with staffing, training, quality assurance and internal affairs.
+              </div>
+              <span class="coc-pill">Badge EC-02</span>
+            </div>
           </div>
+        </div>
 
-          <div class="coc-card">
-            <span class="coc-rank">Lieutenant</span>
-            <div class="coc-name">[Name Here]</div>
-            <div class="coc-meta">
-              Supervises field medics, approves reports and handles minor disciplinary issues.
+        <!-- COMMAND -->
+        <div class="coc-group">
+          <h4 class="coc-group-title">Command</h4>
+          <div class="coc-grid">
+            <div class="coc-card">
+              <span class="coc-rank">EMS Captain</span>
+              <div class="coc-name">Blank</div>
+              <div class="coc-meta">
+                Oversees patrol units, patrol supervisors and ensures SOP compliance in their
+                area of responsibility.
+              </div>
+              <span class="coc-pill">Badge C-01</span>
             </div>
-            <span class="coc-pill">Supervisor</span>
-          </div>
 
-          <div class="coc-card">
-            <span class="coc-rank">Senior Paramedic</span>
-            <div class="coc-name">[Name Here]</div>
-            <div class="coc-meta">
-              Lead ALS provider, responsible for mentoring juniors and overseeing patient care on
-              scene.
+            <div class="coc-card">
+              <span class="coc-rank">EMS Captain</span>
+              <div class="coc-name">Blank</div>
+              <div class="coc-meta">
+                Oversees specialty units, specialty supervisors and ensures SOP compliance in their
+                area of responsibility.
+              </div>
+              <span class="coc-pill">Badge C-02</span>
             </div>
-            <span class="coc-pill">ALS</span>
-          </div>
 
-          <div class="coc-card">
-            <span class="coc-rank">EMT / Paramedic</span>
-            <div class="coc-name">Field Personnel</div>
-            <div class="coc-meta">
-              Frontline providers delivering pre-hospital care, transport and scene support in
-              coordination with law enforcement and fire.
+            <div class="coc-card">
+              <span class="coc-rank">EMS Captain</span>
+              <div class="coc-name">Blank</div>
+              <div class="coc-meta">
+                Provides training documentation and assists both EMS Captains with compliance in
+                certifications and continuing education for there members.
+              </div>
+              <span class="coc-pill">Badge C-03</span>
             </div>
-            <span class="coc-pill">Field</span>
           </div>
         </div>
       </section>
+
 
       <section id="sops">
         <div class="section-header">
@@ -1280,3 +1323,4 @@
   </div>
 </body>
 </html>
+
