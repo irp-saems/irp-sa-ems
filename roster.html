@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SA-EMS Roster</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Roster for San Andreas Emergency Medical Services." />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-main: #05070b;
+      --accent-blue: #1e4fff;
+      --accent-gold: #d4af37;
+      --accent-gold-soft: rgba(212, 175, 55, 0.25);
+      --text-main: #f5f7ff;
+      --text-muted: #a4abc5;
+      --border-subtle: #1c2233;
+      --shadow-soft: 0 22px 40px rgba(0, 0, 0, 0.75);
+      --radius-card: 18px;
+      --radius-pill: 999px;
+      --transition-fast: 0.18s ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Rajdhani", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #151c2f 0, #05060a 55%, #000000 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page-shell {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    /* Header / nav (matching main site) */
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1rem;
+      border-radius: var(--radius-card);
+      background: radial-gradient(circle at top left, rgba(15, 95, 255, 0.15), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(212, 175, 55, 0.13), transparent 65%),
+                  rgba(2, 4, 10, 0.94);
+      border: 1px solid rgba(115, 136, 220, 0.22);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0.75rem;
+      z-index: 20;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand-logo {
+      width: 62px;
+      height: 62px;
+      border-radius: 16px;
+      padding: 0.4rem;
+      background:
+        radial-gradient(circle at 20% 0, rgba(255, 255, 255, 0.17), transparent 55%),
+        linear-gradient(145deg, #020308, #111525);
+      border: 1px solid rgba(212, 175, 55, 0.5);
+      box-shadow: 0 0 18px rgba(212, 175, 55, 0.45);
+      overflow: hidden;
+    }
+
+    .brand-text h1 {
+      font-size: 1.45rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      align-items: baseline;
+    }
+
+    .brand-text h1 span.main {
+      font-weight: 700;
+    }
+
+    .brand-text h1 span.highlight {
+      color: var(--accent-gold);
+      font-weight: 700;
+    }
+
+    .brand-text p {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--text-muted);
+      margin-top: 0.15rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-link {
+      padding: 0.4rem 0.9rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: linear-gradient(135deg, rgba(9, 14, 25, 0.85), rgba(12, 17, 28, 0.85));
+      cursor: pointer;
+      transition: var(--transition-fast);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus {
+      color: var(--text-main);
+      border-color: rgba(212, 175, 55, 0.65);
+      transform: translateY(-1px);
+    }
+
+    .nav-link.active {
+      color: var(--text-main);
+      border-color: rgba(212, 175, 55, 0.85);
+    }
+
+    /* Sections */
+
+    section {
+      margin-top: 3rem;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-header h3 {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .section-header p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+    }
+
+    /* Roster ID cards */
+
+    .roster-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .id-card {
+      border-radius: var(--radius-card);
+      background: linear-gradient(150deg, #05070c, #101625);
+      border: 1px solid rgba(38, 53, 102, 0.9);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .id-rank-strip {
+      padding: 0.25rem 0.9rem;
+      background: linear-gradient(135deg, var(--accent-blue), #6a8dff);
+      color: #ffffff;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .id-rank-strip span.rank {
+      font-weight: 600;
+    }
+
+    .id-rank-strip span.division {
+      font-size: 0.7rem;
+      opacity: 0.9;
+    }
+
+    .id-body {
+      display: flex;
+      gap: 0.9rem;
+      padding: 0.8rem 0.9rem 0.85rem;
+      align-items: center;
+    }
+
+    .id-main {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .id-name {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 0.2rem;
+    }
+
+    .id-badge {
+      font-size: 0.78rem;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-bottom: 0.25rem;
+    }
+
+    .id-meta {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .id-meta strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .id-headshot {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      border: 1px solid rgba(212, 175, 55, 0.7);
+      background:
+        radial-gradient(circle at 10% 0, rgba(255,255,255,0.12), transparent 55%),
+        #030508;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .id-headshot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .id-headshot-placeholder {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      text-align: center;
+      color: var(--text-muted);
+      padding: 0.35rem;
+    }
+
+    footer {
+      margin-top: 3.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    footer span strong {
+      color: var(--accent-gold);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+    }
+
+    @media (max-width: 860px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        position: static;
+      }
+
+      nav {
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header>
+      <div class="brand">
+        <div class="brand-logo">
+          <img src="logo.png" alt="San Andreas EMS Logo" />
+        </div>
+        <div class="brand-text">
+          <h1>
+            <span class="main">San&nbsp;Andreas</span>
+            <span class="highlight">Emergency&nbsp;Medical&nbsp;Services</span>
+          </h1>
+          <p>Advanced Life Support • Rapid Response • Tactical Rescue</p>
+        </div>
+      </div>
+
+      <nav>
+        <a class="nav-link" href="index.html#home">Home</a>
+        <a class="nav-link" href="index.html#coc">Chain of Command</a>
+        <a class="nav-link" href="index.html#sops">Rules &amp; SOPs</a>
+        <a class="nav-link" href="index.html#vehicles">Vehicle Fleet</a>
+        <a class="nav-link active" href="roster.html">Roster</a>
+        <a class="nav-link" href="index.html#training">Training</a>
+        <a class="nav-link" href="index.html#contact">Apply / Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="roster">
+        <div class="section-header">
+          <h3>Roster</h3>
+          <p>
+            Public roster of active San Andreas EMS personnel. Edit the names, ranks, badge numbers
+            and certifications directly in this HTML file and redeploy via GitHub.
+          </p>
+        </div>
+
+        <div class="roster-grid">
+          <!-- MEMBER 1 -->
+          <div class="id-card">
+            <div class="id-rank-strip">
+              <span class="rank">Chief of EMS</span>
+              <span class="division">Command Staff</span>
+            </div>
+            <div class="id-body">
+              <div class="id-main">
+                <div class="id-name">John Doe</div>
+                <div class="id-badge">Badge #100</div>
+                <div class="id-meta">
+                  <strong>Certs:</strong> Paramedic, Tactical EMS, Air Medical
+                </div>
+              </div>
+              <div class="id-headshot">
+                <!-- Replace headshot-chief.jpg with your image in the repo -->
+                <!-- <img src="headshot-chief.jpg" alt="John Doe Headshot" /> -->
+                <div class="id-headshot-placeholder">Headshot</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- MEMBER 2 -->
+          <div class="id-card">
+            <div class="id-rank-strip">
+              <span class="rank">Deputy Chief</span>
+              <span class="division">Command Staff</span>
+            </div>
+            <div class="id-body">
+              <div class="id-main">
+                <div class="id-name">Jane Smith</div>
+                <div class="id-badge">Badge #101</div>
+                <div class="id-meta">
+                  <strong>Certs:</strong> Paramedic, FTO, QA / Training
+                </div>
+              </div>
+              <div class="id-headshot">
+                <!-- <img src="headshot-deputychief.jpg" alt="Jane Smith Headshot" /> -->
+                <div class="id-headshot-placeholder">Headshot</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- MEMBER 3 -->
+          <div class="id-card">
+            <div class="id-rank-strip">
+              <span class="rank">Senior Paramedic</span>
+              <span class="division">Field Ops</span>
+            </div>
+            <div class="id-body">
+              <div class="id-main">
+                <div class="id-name">Alex Brown</div>
+                <div class="id-badge">Badge #205</div>
+                <div class="id-meta">
+                  <strong>Certs:</strong> Paramedic, Instructor, Rescue Ops
+                </div>
+              </div>
+              <div class="id-headshot">
+                <!-- <img src="headshot-alex.jpg" alt="Alex Brown Headshot" /> -->
+                <div class="id-headshot-placeholder">Headshot</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- MEMBER 4 -->
+          <div class="id-card">
+            <div class="id-rank-strip">
+              <span class="rank">EMT</span>
+              <span class="division">Field Ops</span>
+            </div>
+            <div class="id-body">
+              <div class="id-main">
+                <div class="id-name">Sam Taylor</div>
+                <div class="id-badge">Badge #310</div>
+                <div class="id-meta">
+                  <strong>Certs:</strong> EMT-B, Driver / Operator
+                </div>
+              </div>
+              <div class="id-headshot">
+                <!-- <img src="headshot-sam.jpg" alt="Sam Taylor Headshot" /> -->
+                <div class="id-headshot-placeholder">Headshot</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Copy / paste this whole id-card block to add more members -->
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span><strong>SA-EMS</strong> • San Andreas Emergency Medical Services • Tactical Life Support</span>
+      <span>For roleplay purposes only. Not affiliated with any real-world EMS agency.</span>
+    </footer>
+  </div>
+</body>
+</html>
