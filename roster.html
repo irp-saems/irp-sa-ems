@@ -178,13 +178,27 @@
       max-width: 32rem;
     }
 
-    /* Roster ID cards */
+    .roster-section {
+      margin-bottom: 2.5rem;
+    }
+
+    .roster-subheading {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--accent-gold);
+      margin-bottom: 0.7rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      padding-bottom: 0.25rem;
+    }
 
     .roster-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1rem;
     }
+
+    /* ID cards */
 
     .id-card {
       border-radius: var(--radius-card);
@@ -211,11 +225,6 @@
       font-weight: 600;
     }
 
-    .id-rank-strip span.division {
-      font-size: 0.7rem;
-      opacity: 0.9;
-    }
-
     .id-body {
       display: flex;
       gap: 0.9rem;
@@ -240,15 +249,15 @@
       color: var(--accent-gold);
       text-transform: uppercase;
       letter-spacing: 0.18em;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.2rem;
     }
 
-    .id-meta {
+    .id-discord {
       font-size: 0.78rem;
       color: var(--text-muted);
     }
 
-    .id-meta strong {
+    .id-discord strong {
       color: var(--text-main);
       font-weight: 600;
     }
@@ -347,94 +356,910 @@
         <div class="section-header">
           <h3>Roster</h3>
           <p>
-            Public roster of active San Andreas EMS personnel. Edit the names, ranks, badge numbers
-            and certifications directly in this HTML file and redeploy via GitHub.
+            Public roster of active San Andreas EMS personnel. Update names and Discord tags in this
+            file as members are assigned. Headshots can be added from the <code>headshots/</code> folder.
           </p>
         </div>
 
-        <div class="roster-grid">
-          <!-- MEMBER 1 -->
-          <div class="id-card">
-            <div class="id-rank-strip">
-              <span class="rank">Deputy Chief of EMS</span>
-              <span class="division">Administrative Staff</span>
-            </div>
-            <div class="id-body">
-              <div class="id-main">
-                <div class="id-name">Darren Burns</div>
-                <div class="id-badge">Badge #903</div>
-                <div class="id-meta">
-                  <strong>Certs:</strong> Paramedic, Tactical EMS, Air Medical
+        <!-- COMMISSIONERS -->
+        <div class="roster-section">
+          <h4 class="roster-subheading">Commissioners</h4>
+          <div class="roster-grid">
+            <!-- EMS Commissioner E-100 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">EMS Commissioner</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge E-100</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/e-100.jpg" alt="E-100 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
                 </div>
               </div>
-              <div class="id-headshot">
-               <img src="headshots/headshot-chief.jpg" alt="John Doe Headshot" />
+            </div>
+
+            <!-- EMS Commissioner E-101 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">EMS Commissioner</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge E-101</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/e-101.jpg" alt="E-101 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
               </div>
             </div>
           </div>
-
-          <!-- MEMBER 2 -->
-          <div class="id-card">
-            <div class="id-rank-strip">
-              <span class="rank">Deputy Chief</span>
-              <span class="division">Command Staff</span>
-            </div>
-            <div class="id-body">
-              <div class="id-main">
-                <div class="id-name">Jane Smith</div>
-                <div class="id-badge">Badge #101</div>
-                <div class="id-meta">
-                  <strong>Certs:</strong> Paramedic, FTO, QA / Training
-                </div>
-              </div>
-              <div class="id-headshot">
-               <img src="headshots/headshot-chief.jpg" alt="John Doe Headshot" />
-              </div>
-            </div>
-          </div>
-
-          <!-- MEMBER 3 -->
-          <div class="id-card">
-            <div class="id-rank-strip">
-              <span class="rank">Senior Paramedic</span>
-              <span class="division">Field Ops</span>
-            </div>
-            <div class="id-body">
-              <div class="id-main">
-                <div class="id-name">Alex Brown</div>
-                <div class="id-badge">Badge #205</div>
-                <div class="id-meta">
-                  <strong>Certs:</strong> Paramedic, Instructor, Rescue Ops
-                </div>
-              </div>
-              <div class="id-headshot">
-               <img src="headshots/headshot-chief.jpg" alt="John Doe Headshot" />
-              </div>
-            </div>
-          </div>
-
-          <!-- MEMBER 4 -->
-          <div class="id-card">
-            <div class="id-rank-strip">
-              <span class="rank">EMT</span>
-              <span class="division">Field Ops</span>
-            </div>
-            <div class="id-body">
-              <div class="id-main">
-                <div class="id-name">Sam Taylor</div>
-                <div class="id-badge">Badge #310</div>
-                <div class="id-meta">
-                  <strong>Certs:</strong> EMT-B, Driver / Operator
-                </div>
-              </div>
-              <div class="id-headshot">
-               <img src="headshots/headshot-chief.jpg" alt="John Doe Headshot" />
-              </div>
-            </div>
-          </div>
-
-          <!-- Copy / paste this whole id-card block to add more members -->
         </div>
+
+        <!-- HIGH COMMAND -->
+        <div class="roster-section">
+          <h4 class="roster-subheading">High Command</h4>
+          <div class="roster-grid">
+            <!-- EMS Chief EC-01 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">EMS Chief</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge EC-01</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/ec-01.jpg" alt="EC-01 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- EMS Assistant Chief EC-02 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">EMS Assistant Chief</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge EC-02</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/ec-02.jpg" alt="EC-02 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COMMAND -->
+        <div class="roster-section">
+          <h4 class="roster-subheading">Command</h4>
+          <div class="roster-grid">
+            <!-- EMS Captain C-01 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">EMS Captain</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge C-01</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/c-01.jpg" alt="C-01 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- EMS Captain C-02 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">EMS Captain</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge C-02</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/c-02.jpg" alt="C-02 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- EMS Captain C-03 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">EMS Captain</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge C-03</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/c-03.jpg" alt="C-03 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUPERVISOR -->
+        <div class="roster-section">
+          <h4 class="roster-subheading">Supervisor</h4>
+          <div class="roster-grid">
+            <!-- EMS Lieutenant L-01 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">EMS Lieutenant</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge L-01</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/l-01.jpg" alt="L-01 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- EMS Lieutenant L-02 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">EMS Lieutenant</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge L-02</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/l-02.jpg" alt="L-02 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PARAMEDIC -->
+        <div class="roster-section">
+          <h4 class="roster-subheading">Paramedic</h4>
+          <div class="roster-grid">
+            <!-- P-01 to P-10 -->
+            <!-- You can rename these files if you add headshots -->
+            <!-- P-01 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">Paramedic</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge P-01</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/p-01.jpg" alt="P-01 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- P-02 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">Paramedic</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge P-02</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/p-02.jpg" alt="P-02 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- P-03 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">Paramedic</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge P-03</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/p-03.jpg" alt="P-03 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- P-04 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">Paramedic</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge P-04</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/p-04.jpg" alt="P-04 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- P-05 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">Paramedic</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge P-05</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/p-05.jpg" alt="P-05 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- P-06 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">Paramedic</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge P-06</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/p-06.jpg" alt="P-06 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- P-07 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">Paramedic</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge P-07</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/p-07.jpg" alt="P-07 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- P-08 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">Paramedic</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge P-08</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/p-08.jpg" alt="P-08 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- P-09 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">Paramedic</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge P-09</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/p-09.jpg" alt="P-09 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- P-10 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">Paramedic</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge P-10</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/p-10.jpg" alt="P-10 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ADVANCED EMT -->
+        <div class="roster-section">
+          <h4 class="roster-subheading">Advanced EMT</h4>
+          <div class="roster-grid">
+            <!-- A-01 to A-10 -->
+            <!-- A-01 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">Advanced EMT</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge A-01</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/a-01.jpg" alt="A-01 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- A-02 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">Advanced EMT</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge A-02</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/a-02.jpg" alt="A-02 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- A-03 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">Advanced EMT</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge A-03</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/a-03.jpg" alt="A-03 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- A-04 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">Advanced EMT</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge A-04</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/a-04.jpg" alt="A-04 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- A-05 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">Advanced EMT</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge A-05</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/a-05.jpg" alt="A-05 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- A-06 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">Advanced EMT</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge A-06</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/a-06.jpg" alt="A-06 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- A-07 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">Advanced EMT</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge A-07</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/a-07.jpg" alt="A-07 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- A-08 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">Advanced EMT</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge A-08</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/a-08.jpg" alt="A-08 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- A-09 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">Advanced EMT</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge A-09</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/a-09.jpg" alt="A-09 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- A-10 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">Advanced EMT</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge A-10</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/a-10.jpg" alt="A-10 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- EMT -->
+        <div class="roster-section">
+          <h4 class="roster-subheading">EMT</h4>
+          <div class="roster-grid">
+            <!-- E-01 to E-10 -->
+            <!-- E-01 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">EMT</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge E-01</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/e-01.jpg" alt="E-01 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- E-02 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">EMT</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge E-02</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/e-02.jpg" alt="E-02 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- E-03 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">EMT</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge E-03</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/e-03.jpg" alt="E-03 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- E-04 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">EMT</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge E-04</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/e-04.jpg" alt="E-04 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- E-05 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">EMT</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge E-05</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/e-05.jpg" alt="E-05 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- E-06 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">EMT</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge E-06</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/e-06.jpg" alt="E-06 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- E-07 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">EMT</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge E-07</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/e-07.jpg" alt="E-07 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- E-08 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">EMT</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge E-08</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/e-08.jpg" alt="E-08 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- E-09 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">EMT</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge E-09</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/e-09.jpg" alt="E-09 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- E-10 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">EMT</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge E-10</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/e-10.jpg" alt="E-10 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STUDENT -->
+        <div class="roster-section">
+          <h4 class="roster-subheading">Student</h4>
+          <div class="roster-grid">
+            <!-- S-01 to S-10 -->
+            <!-- S-01 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">Student</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge S-01</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/s-01.jpg" alt="S-01 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- S-02 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">Student</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge S-02</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/s-02.jpg" alt="S-02 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- S-03 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">Student</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge S-03</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/s-03.jpg" alt="S-03 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- S-04 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">Student</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge S-04</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/s-04.jpg" alt="S-04 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- S-05 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">Student</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge S-05</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/s-05.jpg" alt="S-05 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- S-06 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">Student</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge S-06</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/s-06.jpg" alt="S-06 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- S-07 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">Student</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge S-07</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/s-07.jpg" alt="S-07 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- S-08 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">Student</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge S-08</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/s-08.jpg" alt="S-08 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- S-09 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">Student</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge S-09</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/s-09.jpg" alt="S-09 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+            <!-- S-10 -->
+            <div class="id-card">
+              <div class="id-rank-strip">
+                <span class="rank">Student</span>
+              </div>
+              <div class="id-body">
+                <div class="id-main">
+                  <div class="id-name">Blank</div>
+                  <div class="id-badge">Badge S-10</div>
+                  <div class="id-discord"><strong>Discord:</strong> Blank</div>
+                </div>
+                <div class="id-headshot">
+                  <!-- <img src="headshots/s-10.jpg" alt="S-10 Headshot" /> -->
+                  <div class="id-headshot-placeholder">Headshot</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </section>
     </main>
 
