@@ -53,8 +53,6 @@
       text-decoration: none;
     }
 
-    /* Layout */
-
     .page-shell {
       max-width: 1200px;
       margin: 0 auto;
@@ -168,8 +166,6 @@
     .nav-link:hover::before {
       opacity: 1;
     }
-
-    /* Main hero */
 
     .hero {
       margin-top: 1.75rem;
@@ -426,8 +422,6 @@
       color: #8a93bd;
     }
 
-    /* Sections */
-
     section {
       margin-top: 3rem;
     }
@@ -451,8 +445,6 @@
       color: var(--text-muted);
       max-width: 32rem;
     }
-
-    /* Quick links */
 
     .quick-links-grid {
       display: grid;
@@ -498,8 +490,6 @@
       letter-spacing: 0.18em;
       color: var(--accent-gold);
     }
-
-    /* Chain of command */
 
     .coc-grid {
       display: grid;
@@ -548,8 +538,6 @@
       background: radial-gradient(circle at top, rgba(30, 79, 255, 0.3), transparent 60%);
       color: #dbe3ff;
     }
-
-    /* Rules & SOPs */
 
     .rules-layout {
       display: grid;
@@ -619,8 +607,6 @@
       color: #c9d3ff;
     }
 
-    /* Vehicles */
-
     .vehicle-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -686,8 +672,6 @@
       box-shadow: 0 0 10px rgba(59, 217, 138, 0.9);
     }
 
-    /* Training */
-
     .training-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -719,8 +703,6 @@
       font-size: 0.76rem;
       color: var(--text-muted);
     }
-
-    /* Contact / Apply */
 
     .contact-card {
       border-radius: var(--radius-card);
@@ -799,8 +781,6 @@
       font-size: 0.7rem;
     }
 
-    /* Responsive */
-
     @media (max-width: 860px) {
       header {
         flex-direction: column;
@@ -840,11 +820,9 @@
 </head>
 <body>
   <div class="page-shell">
-    <!-- HEADER / NAV -->
     <header>
       <div class="brand">
         <div class="brand-logo">
-          <!-- Replace logo.png with your own filename if needed -->
           <img src="logo.png" alt="San Andreas EMS Logo" />
         </div>
         <div class="brand-text">
@@ -861,12 +839,12 @@
         <a class="nav-link" href="#coc">Chain of Command</a>
         <a class="nav-link" href="#sops">Rules &amp; SOPs</a>
         <a class="nav-link" href="#vehicles">Vehicle Fleet</a>
+        <a class="nav-link" href="roster.html">Roster</a>
         <a class="nav-link" href="#training">Training</a>
         <a class="nav-link" href="#contact">Apply / Contact</a>
       </nav>
     </header>
 
-    <!-- HERO / HOME -->
     <main id="home">
       <section class="hero">
         <div>
@@ -947,7 +925,6 @@
         </aside>
       </section>
 
-      <!-- QUICK LINKS -->
       <section>
         <div class="section-header">
           <h3>Operations Portal</h3>
@@ -984,14 +961,13 @@
         </div>
       </section>
 
-      <!-- CHAIN OF COMMAND -->
       <section id="coc">
         <div class="section-header">
           <h3>Chain of Command</h3>
           <p>
             Respecting the chain of command ensures safe, coordinated operations. Use this as a
-            reference for supervision, approvals and complaint routing. You can change names and
-            call-signs as your department structure evolves.
+            reference for supervision, approvals and complaint routing. Edit these names and roles
+            in the HTML as your structure changes.
           </p>
         </div>
 
@@ -1055,7 +1031,6 @@
         </div>
       </section>
 
-      <!-- RULES & SOPs -->
       <section id="sops">
         <div class="section-header">
           <h3>Rules &amp; SOPs</h3>
@@ -1136,7 +1111,6 @@
         </div>
       </section>
 
-      <!-- VEHICLE FLEET -->
       <section id="vehicles">
         <div class="section-header">
           <h3>Vehicle Fleet</h3>
@@ -1209,7 +1183,6 @@
         </div>
       </section>
 
-      <!-- TRAINING -->
       <section id="training">
         <div class="section-header">
           <h3>Training &amp; Certification</h3>
@@ -1258,7 +1231,6 @@
         </div>
       </section>
 
-      <!-- CONTACT / APPLY -->
       <section id="contact">
         <div class="section-header">
           <h3>Apply / Contact</h3>
