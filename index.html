@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>San Andreas Emergency Medical Services</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Official site for San Andreas Emergency Medical Services." />
+
+  <!-- Optional Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-main: #05070b;
+      --bg-alt: #0a0d14;
+      --bg-elevated: #101522;
+      --accent-blue: #1e4fff;
+      --accent-blue-soft: rgba(30, 79, 255, 0.35);
+      --accent-gold: #d4af37;
+      --accent-gold-soft: rgba(212, 175, 55, 0.25);
+      --text-main: #f5f7ff;
+      --text-muted: #a4abc5;
+      --border-subtle: #1c2233;
+      --danger: #ff4b5c;
+      --success: #3bd98a;
+      --shadow-soft: 0 22px 40px rgba(0, 0, 0, 0.75);
+      --radius-card: 18px;
+      --radius-pill: 999px;
+      --transition-fast: 0.18s ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Rajdhani", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #151c2f 0, #05060a 55%, #000000 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Layout */
+
+    .page-shell {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1rem;
+      border-radius: var(--radius-card);
+      background: radial-gradient(circle at top left, rgba(15, 95, 255, 0.15), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(212, 175, 55, 0.13), transparent 65%),
+                  rgba(2, 4, 10, 0.94);
+      border: 1px solid rgba(115, 136, 220, 0.22);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0.75rem;
+      z-index: 20;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand-logo {
+      width: 62px;
+      height: 62px;
+      border-radius: 16px;
+      padding: 0.4rem;
+      background:
+        radial-gradient(circle at 20% 0, rgba(255, 255, 255, 0.17), transparent 55%),
+        linear-gradient(145deg, #020308, #111525);
+      border: 1px solid rgba(212, 175, 55, 0.5);
+      box-shadow: 0 0 18px rgba(212, 175, 55, 0.45);
+      overflow: hidden;
+    }
+
+    .brand-text h1 {
+      font-size: 1.45rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      align-items: baseline;
+    }
+
+    .brand-text h1 span.main {
+      font-weight: 700;
+    }
+
+    .brand-text h1 span.highlight {
+      color: var(--accent-gold);
+      font-weight: 700;
+    }
+
+    .brand-text p {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--text-muted);
+      margin-top: 0.15rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-link {
+      padding: 0.4rem 0.9rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: linear-gradient(135deg, rgba(9, 14, 25, 0.85), rgba(12, 17, 28, 0.85));
+      cursor: pointer;
+      transition: var(--transition-fast);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav-link::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(30, 79, 255, 0.6), transparent 60%);
+      opacity: 0;
+      transition: var(--transition-fast);
+      mix-blend-mode: screen;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus {
+      color: var(--text-main);
+      border-color: rgba(212, 175, 55, 0.65);
+      transform: translateY(-1px);
+    }
+
+    .nav-link:hover::before {
+      opacity: 1;
+    }
+
+    /* Main hero */
+
+    .hero {
+      margin-top: 1.75rem;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      gap: 2.25rem;
+      align-items: center;
+    }
+
+    .hero-kicker {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.23em;
+      color: var(--accent-gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.2rem 0.75rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(212, 175, 55, 0.55);
+      background: radial-gradient(circle at left, rgba(212, 175, 55, 0.35), transparent 60%);
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-kicker-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 10px rgba(59, 217, 138, 0.9);
+    }
+
+    .hero h2 {
+      font-size: clamp(2.1rem, 3vw, 2.6rem);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.7rem;
+    }
+
+    .hero h2 span {
+      display: block;
+    }
+
+    .hero h2 span.emphasis {
+      color: var(--accent-blue);
+    }
+
+    .hero p {
+      max-width: 34rem;
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      padding: 0.7rem 1.4rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      position: relative;
+      overflow: hidden;
+      background: transparent;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-blue), #6a8dff);
+      color: #ffffff;
+      box-shadow: 0 0 24px var(--accent-blue-soft);
+    }
+
+    .btn-primary span.icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 32px var(--accent-blue-soft);
+      filter: brightness(1.08);
+    }
+
+    .btn-ghost {
+      border-color: rgba(212, 175, 55, 0.55);
+      color: var(--accent-gold);
+      background: linear-gradient(135deg, rgba(6, 9, 18, 0.92), rgba(18, 19, 26, 0.92));
+    }
+
+    .btn-ghost:hover {
+      background: radial-gradient(circle at top, rgba(212, 175, 55, 0.35), transparent 65%);
+      border-color: var(--accent-gold);
+      color: var(--text-main);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta span.label {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #7c84a8;
+    }
+
+    .hero-meta span.value {
+      color: var(--accent-gold);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-status-panel {
+      border-radius: var(--radius-card);
+      background: linear-gradient(145deg, #05070d, #101621);
+      border: 1px solid rgba(53, 66, 118, 0.9);
+      box-shadow: var(--shadow-soft);
+      padding: 1.25rem 1.1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-status-panel::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 10% 0, rgba(30, 79, 255, 0.2), transparent 55%),
+        radial-gradient(circle at 80% 100%, rgba(212, 175, 55, 0.3), transparent 55%);
+      opacity: 0.85;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .panel-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .status-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .status-header h3 {
+      font-size: 0.95rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .status-pill {
+      font-size: 0.7rem;
+      padding: 0.25rem 0.8rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(59, 217, 138, 0.9);
+      color: var(--success);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: radial-gradient(circle at left, rgba(59, 217, 138, 0.24), transparent 70%);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 10px rgba(59, 217, 138, 0.9);
+    }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.95rem;
+      margin-bottom: 1.1rem;
+      font-size: 0.78rem;
+    }
+
+    .status-item {
+      padding: 0.6rem 0.7rem;
+      border-radius: 12px;
+      background: rgba(5, 7, 15, 0.8);
+      border: 1px solid rgba(40, 55, 105, 0.85);
+    }
+
+    .status-item span.label {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #7a84a5;
+    }
+
+    .status-item span.value {
+      display: block;
+      margin-top: 0.2rem;
+      font-size: 0.92rem;
+      color: var(--text-main);
+    }
+
+    .status-item span.value.critical {
+      color: var(--danger);
+    }
+
+    .status-footer {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      border-top: 1px dashed rgba(88, 108, 172, 0.6);
+      padding-top: 0.6rem;
+      margin-top: 0.5rem;
+    }
+
+    .status-footer span.tag {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.7rem;
+      color: var(--accent-gold);
+    }
+
+    .status-footer span.timestamp {
+      font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.68rem;
+      color: #8a93bd;
+    }
+
+    /* Sections */
+
+    section {
+      margin-top: 3rem;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-header h3 {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .section-header p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+    }
+
+    /* Quick links */
+
+    .quick-links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+    }
+
+    .quick-card {
+      border-radius: var(--radius-card);
+      background: radial-gradient(circle at top left, rgba(30, 79, 255, 0.18), transparent 55%),
+                  linear-gradient(150deg, rgba(11, 15, 27, 0.96), rgba(4, 6, 12, 0.96));
+      border: 1px solid rgba(44, 57, 110, 0.95);
+      padding: 0.95rem 1rem;
+      box-shadow: 0 18px 30px rgba(0, 0, 0, 0.7);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .quick-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 24px 40px rgba(0, 0, 0, 0.85);
+      border-color: rgba(212, 175, 55, 0.8);
+    }
+
+    .quick-card h4 {
+      font-size: 0.9rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+
+    .quick-card p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .quick-card span.tagline {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent-gold);
+    }
+
+    /* Chain of command */
+
+    .coc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 1rem;
+    }
+
+    .coc-card {
+      border-radius: var(--radius-card);
+      background: linear-gradient(150deg, #05070e, #101520);
+      border: 1px solid rgba(37, 47, 90, 0.95);
+      padding: 0.9rem 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .coc-rank {
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 0.15rem;
+    }
+
+    .coc-name {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .coc-meta {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .coc-pill {
+      position: absolute;
+      top: 0.7rem;
+      right: 0.9rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.7rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(30, 79, 255, 0.8);
+      background: radial-gradient(circle at top, rgba(30, 79, 255, 0.3), transparent 60%);
+      color: #dbe3ff;
+    }
+
+    /* Rules & SOPs */
+
+    .rules-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.8fr) minmax(0, 2.2fr);
+      gap: 1.75rem;
+    }
+
+    .rules-card {
+      border-radius: var(--radius-card);
+      background: linear-gradient(150deg, #05070d, #0d121f);
+      border: 1px solid rgba(40, 56, 102, 0.9);
+      padding: 1rem 1.1rem;
+      box-shadow: var(--shadow-soft);
+      font-size: 0.82rem;
+    }
+
+    .rules-card h4 {
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-bottom: 0.35rem;
+      color: var(--accent-blue);
+    }
+
+    .rules-card p {
+      color: var(--text-muted);
+      margin-bottom: 0.55rem;
+    }
+
+    .rules-list {
+      list-style: none;
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .rules-list li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.55rem;
+      align-items: flex-start;
+    }
+
+    .rules-bullet {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      margin-top: 0.35rem;
+      background: var(--accent-gold);
+      box-shadow: 0 0 10px var(--accent-gold-soft);
+    }
+
+    .rules-text {
+      color: var(--text-main);
+    }
+
+    .sop-tag {
+      display: inline-flex;
+      padding: 0.18rem 0.6rem;
+      margin-right: 0.25rem;
+      margin-bottom: 0.25rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(112, 130, 210, 0.9);
+      background: rgba(7, 11, 22, 0.9);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #c9d3ff;
+    }
+
+    /* Vehicles */
+
+    .vehicle-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .vehicle-card {
+      border-radius: var(--radius-card);
+      background: linear-gradient(150deg, #05070c, #101625);
+      border: 1px solid rgba(38, 53, 102, 0.9);
+      padding: 0.9rem 1rem;
+      font-size: 0.82rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vehicle-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.6rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .vehicle-name {
+      font-size: 0.9rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .vehicle-type {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent-gold);
+    }
+
+    .vehicle-meta {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .vehicle-status {
+      font-size: 0.73rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(53, 120, 255, 0.9);
+      background: radial-gradient(circle at left, rgba(53, 120, 255, 0.3), transparent 60%);
+      color: #dce6ff;
+    }
+
+    .status-indicator {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 10px rgba(59, 217, 138, 0.9);
+    }
+
+    /* Training */
+
+    .training-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1rem;
+    }
+
+    .training-card {
+      border-radius: var(--radius-card);
+      background: linear-gradient(150deg, #05070d, #101526);
+      border: 1px solid rgba(42, 60, 122, 0.95);
+      padding: 0.9rem 1rem;
+      font-size: 0.82rem;
+    }
+
+    .training-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #7a86c0;
+      margin-bottom: 0.25rem;
+    }
+
+    .training-title {
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .training-meta {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    /* Contact / Apply */
+
+    .contact-card {
+      border-radius: var(--radius-card);
+      background: linear-gradient(150deg, #05070d, #0c111d);
+      border: 1px solid rgba(37, 50, 97, 0.95);
+      padding: 1rem 1.1rem;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+      gap: 1.3rem;
+      align-items: center;
+    }
+
+    .contact-card h4 {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-card p {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+    }
+
+    .contact-tag {
+      padding: 0.18rem 0.65rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(30, 79, 255, 0.9);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #d3ddff;
+    }
+
+    .contact-meta {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: grid;
+      gap: 0.25rem;
+    }
+
+    .contact-meta span.label {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.7rem;
+      color: #7c86b3;
+    }
+
+    .contact-meta span.value {
+      color: var(--accent-gold);
+    }
+
+    footer {
+      margin-top: 3.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    footer span strong {
+      color: var(--accent-gold);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 860px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        position: static;
+      }
+
+      nav {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .rules-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .contact-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-primary,
+      .btn-ghost {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <!-- HEADER / NAV -->
+    <header>
+      <div class="brand">
+        <div class="brand-logo">
+          <!-- Replace logo.png with your own filename if needed -->
+          <img src="logo.png" alt="San Andreas EMS Logo" />
+        </div>
+        <div class="brand-text">
+          <h1>
+            <span class="main">San&nbsp;Andreas</span>
+            <span class="highlight">Emergency&nbsp;Medical&nbsp;Services</span>
+          </h1>
+          <p>Advanced Life Support • Rapid Response • Tactical Rescue</p>
+        </div>
+      </div>
+
+      <nav>
+        <a class="nav-link" href="#home">Home</a>
+        <a class="nav-link" href="#coc">Chain of Command</a>
+        <a class="nav-link" href="#sops">Rules &amp; SOPs</a>
+        <a class="nav-link" href="#vehicles">Vehicle Fleet</a>
+        <a class="nav-link" href="#training">Training</a>
+        <a class="nav-link" href="#contact">Apply / Contact</a>
+      </nav>
+    </header>
+
+    <!-- HERO / HOME -->
+    <main id="home">
+      <section class="hero">
+        <div>
+          <div class="hero-kicker">
+            <span class="hero-kicker-dot"></span>
+            On Duty • Staffed • Citywide Coverage
+          </div>
+          <h2>
+            <span>Life Support</span>
+            <span class="emphasis">Under Tactical Conditions.</span>
+          </h2>
+          <p>
+            San Andreas Emergency Medical Services provides rapid, coordinated pre-hospital care
+            across the state. From routine medical calls to multi-casualty incidents and high-risk
+            tactical operations, our medics are trained to stabilize, protect and transport.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#sops" class="btn-primary">
+              <span class="icon">!</span>
+              View Operational SOPs
+            </a>
+            <a href="#contact" class="btn-ghost">
+              Join SA-EMS
+            </a>
+          </div>
+
+          <div class="hero-meta">
+            <div>
+              <span class="label">Primary Coverage</span>
+              <span class="value">Los Santos &amp; Blaine County</span>
+            </div>
+            <div>
+              <span class="label">Service Level</span>
+              <span class="value">ALS / BLS / Tactical EMS</span>
+            </div>
+            <div>
+              <span class="label">Dispatch</span>
+              <span class="value">/911 • SA-COMM</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-status-panel">
+          <div class="panel-content">
+            <div class="status-header">
+              <h3>Ops Snapshot</h3>
+              <span class="status-pill">
+                <span class="status-dot"></span>
+                Active Shift
+              </span>
+            </div>
+
+            <div class="status-grid">
+              <div class="status-item">
+                <span class="label">Units Available</span>
+                <span class="value">4 Ground • 1 Air</span>
+              </div>
+              <div class="status-item">
+                <span class="label">Current Priority</span>
+                <span class="value critical">Pri&nbsp;2 MVC</span>
+              </div>
+              <div class="status-item">
+                <span class="label">Average Response</span>
+                <span class="value">00:03:42</span>
+              </div>
+              <div class="status-item">
+                <span class="label">Shift Supervisor</span>
+                <span class="value">Duty Chief On-Call</span>
+              </div>
+            </div>
+
+            <div class="status-footer">
+              <span class="tag">Real-Time Data (For RP Use)</span>
+              <span class="timestamp">Updated: Live In-Game / CAD</span>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- QUICK LINKS -->
+      <section>
+        <div class="section-header">
+          <h3>Operations Portal</h3>
+          <p>
+            Centralized access for on-duty personnel and applicants. Use the links below to quickly
+            reach the information you need while in the field or preparing for shift.
+          </p>
+        </div>
+
+        <div class="quick-links-grid">
+          <a href="#sops" class="quick-card">
+            <h4>Field Protocols</h4>
+            <p>Medical, trauma and tactical care algorithms for day-to-day operations.</p>
+            <span class="tagline">ALS • BLS • Triage</span>
+          </a>
+
+          <a href="#coc" class="quick-card">
+            <h4>Chain of Command</h4>
+            <p>Know who you answer to and who to contact for issues, escalations and approvals.</p>
+            <span class="tagline">Command Structure</span>
+          </a>
+
+          <a href="#vehicles" class="quick-card">
+            <h4>Fleet Assignments</h4>
+            <p>Unit designations, station assignments and capability overview for each rig.</p>
+            <span class="tagline">Ambulance • Rescue • Air</span>
+          </a>
+
+          <a href="#contact" class="quick-card">
+            <h4>Apply to SA-EMS</h4>
+            <p>Minimum requirements, application process and training pipeline information.</p>
+            <span class="tagline">Recruitment</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- CHAIN OF COMMAND -->
+      <section id="coc">
+        <div class="section-header">
+          <h3>Chain of Command</h3>
+          <p>
+            Respecting the chain of command ensures safe, coordinated operations. Use this as a
+            reference for supervision, approvals and complaint routing. You can change names and
+            call-signs as your department structure evolves.
+          </p>
+        </div>
+
+        <div class="coc-grid">
+          <div class="coc-card">
+            <span class="coc-rank">Chief of EMS</span>
+            <div class="coc-name">[Name Here]</div>
+            <div class="coc-meta">
+              Overall command of SA-EMS. Sets policy, approves SOPs, oversees division leadership and
+              inter-agency relations.
+            </div>
+            <span class="coc-pill">Executive</span>
+          </div>
+
+          <div class="coc-card">
+            <span class="coc-rank">Deputy Chief</span>
+            <div class="coc-name">[Name Here]</div>
+            <div class="coc-meta">
+              Manages daily operations, oversees battalion captains, training and quality assurance.
+            </div>
+            <span class="coc-pill">Operations</span>
+          </div>
+
+          <div class="coc-card">
+            <span class="coc-rank">Battalion Captain</span>
+            <div class="coc-name">[Name Here]</div>
+            <div class="coc-meta">
+              Responsible for shift coverage, station assignments and major incident command.
+            </div>
+            <span class="coc-pill">Shift Lead</span>
+          </div>
+
+          <div class="coc-card">
+            <span class="coc-rank">Lieutenant</span>
+            <div class="coc-name">[Name Here]</div>
+            <div class="coc-meta">
+              Supervises field medics, approves reports and handles minor disciplinary issues.
+            </div>
+            <span class="coc-pill">Supervisor</span>
+          </div>
+
+          <div class="coc-card">
+            <span class="coc-rank">Senior Paramedic</span>
+            <div class="coc-name">[Name Here]</div>
+            <div class="coc-meta">
+              Lead ALS provider, responsible for mentoring juniors and overseeing patient care on
+              scene.
+            </div>
+            <span class="coc-pill">ALS</span>
+          </div>
+
+          <div class="coc-card">
+            <span class="coc-rank">EMT / Paramedic</span>
+            <div class="coc-name">Field Personnel</div>
+            <div class="coc-meta">
+              Frontline providers delivering pre-hospital care, transport and scene support in
+              coordination with law enforcement and fire.
+            </div>
+            <span class="coc-pill">Field</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- RULES & SOPs -->
+      <section id="sops">
+        <div class="section-header">
+          <h3>Rules &amp; SOPs</h3>
+          <p>
+            These guidelines define how SA-EMS operates in-game and out-of-character. Customize
+            these points to match your server rules while keeping the structure for quick reference.
+          </p>
+        </div>
+
+        <div class="rules-layout">
+          <div class="rules-card">
+            <h4>Core Expectations</h4>
+            <p>
+              All SA-EMS personnel are expected to act professionally, maintain medical integrity and
+              follow both server rules and departmental policy.
+            </p>
+            <ul class="rules-list">
+              <li>
+                <span class="rules-bullet"></span>
+                <span class="rules-text">Treat every patient with respect, regardless of scenario or faction.</span>
+              </li>
+              <li>
+                <span class="rules-bullet"></span>
+                <span class="rules-text">Follow chain of command; issues go up, not out.</span>
+              </li>
+              <li>
+                <span class="rules-bullet"></span>
+                <span class="rules-text">No abuse of EMS powers (reviving, transporting, or metagaming).</span>
+              </li>
+              <li>
+                <span class="rules-bullet"></span>
+                <span class="rules-text">Maintain radio discipline on EMS / shared tactical channels.</span>
+              </li>
+              <li>
+                <span class="rules-bullet"></span>
+                <span class="rules-text">Document calls accurately in CAD / reports as required.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="rules-card">
+            <h4>Operational SOP Index</h4>
+            <p>
+              Use this as a quick index section. You can convert each tag into a link to a Google
+              Doc, CAD doc or PDF if you host detailed protocols elsewhere.
+            </p>
+
+            <div style="margin-bottom:0.55rem;">
+              <span class="sop-tag">General Operations</span>
+              <span class="sop-tag">Dispatch &amp; Radio</span>
+              <span class="sop-tag">Scene Safety</span>
+              <span class="sop-tag">MVC / Trauma</span>
+              <span class="sop-tag">Cardiac Arrest</span>
+              <span class="sop-tag">Air Medical</span>
+              <span class="sop-tag">Tactical / Hostile Scene</span>
+              <span class="sop-tag">Hospital Off-Load</span>
+              <span class="sop-tag">QA / Documentation</span>
+            </div>
+
+            <p style="margin-bottom:0.35rem;">
+              <strong>Example:</strong> Tactical Scene SOP:
+            </p>
+            <ul class="rules-list">
+              <li>
+                <span class="rules-bullet"></span>
+                <span class="rules-text">Stage until law enforcement declares the scene safe or provides an escort.</span>
+              </li>
+              <li>
+                <span class="rules-bullet"></span>
+                <span class="rules-text">Armor, helmets and tactical PPE are required where issued.</span>
+              </li>
+              <li>
+                <span class="rules-bullet"></span>
+                <span class="rules-text">Follow unified command; EMS does not self-deploy into hot zones.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- VEHICLE FLEET -->
+      <section id="vehicles">
+        <div class="section-header">
+          <h3>Vehicle Fleet</h3>
+          <p>
+            Customize each unit name, call-sign and description to match the vehicles available on
+            your FiveM server. You can expand this section into a full gallery if needed.
+          </p>
+        </div>
+
+        <div class="vehicle-grid">
+          <div class="vehicle-card">
+            <div class="vehicle-header">
+              <span class="vehicle-name">Medic 1</span>
+              <span class="vehicle-type">Als Ambulance</span>
+            </div>
+            <div class="vehicle-meta">
+              Primary ALS unit assigned to central Los Santos. Equipped for advanced airway,
+              cardiac and trauma management.
+            </div>
+            <div class="vehicle-status">
+              <span class="status-indicator"></span>
+              Status: In Service
+            </div>
+          </div>
+
+          <div class="vehicle-card">
+            <div class="vehicle-header">
+              <span class="vehicle-name">Medic 2</span>
+              <span class="vehicle-type">BlS Ambulance</span>
+            </div>
+            <div class="vehicle-meta">
+              Supports county calls and inter-facility transports. Staffed with EMTs under
+              paramedic oversight.
+            </div>
+            <div class="vehicle-status">
+              <span class="status-indicator"></span>
+              Status: In Service
+            </div>
+          </div>
+
+          <div class="vehicle-card">
+            <div class="vehicle-header">
+              <span class="vehicle-name">Rescue 1</span>
+              <span class="vehicle-type">Rescue / Squad</span>
+            </div>
+            <div class="vehicle-meta">
+              Carries extrication, rescue and specialized equipment for MVCs, structure incidents
+              and technical rescues.
+            </div>
+            <div class="vehicle-status">
+              <span class="status-indicator"></span>
+              Status: Available as Assigned
+            </div>
+          </div>
+
+          <div class="vehicle-card">
+            <div class="vehicle-header">
+              <span class="vehicle-name">Air Med 1</span>
+              <span class="vehicle-type">Air Medical</span>
+            </div>
+            <div class="vehicle-meta">
+              Helicopter unit used for long-distance transports, major trauma and remote response
+              when conditions allow.
+            </div>
+            <div class="vehicle-status">
+              <span class="status-indicator"></span>
+              Status: Weather Dependent
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TRAINING -->
+      <section id="training">
+        <div class="section-header">
+          <h3>Training &amp; Certification</h3>
+          <p>
+            Training ensures medics can perform under pressure and within protocol. Adjust this to
+            reflect your academy, FTO program and in-game requirements.
+          </p>
+        </div>
+
+        <div class="training-grid">
+          <div class="training-card">
+            <div class="training-label">Phase 1</div>
+            <div class="training-title">Academy &amp; Orientation</div>
+            <div class="training-meta">
+              Introduction to SA-EMS policies, radio usage, basic medical roleplay and server rules.
+              Required for all new applicants.
+            </div>
+          </div>
+
+          <div class="training-card">
+            <div class="training-label">Phase 2</div>
+            <div class="training-title">Field Training (FTO)</div>
+            <div class="training-meta">
+              Ride-along shifts with an FTO to demonstrate scene control, patient assessment and
+              documentation skills.
+            </div>
+          </div>
+
+          <div class="training-card">
+            <div class="training-label">Phase 3</div>
+            <div class="training-title">Independent Duty</div>
+            <div class="training-meta">
+              Cleared to operate a unit under supervisor oversight. Ongoing evaluations and
+              refreshers as needed.
+            </div>
+          </div>
+
+          <div class="training-card">
+            <div class="training-label">Special</div>
+            <div class="training-title">Tactical / Specialist Courses</div>
+            <div class="training-meta">
+              Optional: Tactical EMS, Air Medical, Rescue, command courses and scenario-based mass
+              casualty training.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT / APPLY -->
+      <section id="contact">
+        <div class="section-header">
+          <h3>Apply / Contact</h3>
+          <p>
+            Plug in your Discord, website forms or CAD links here so applicants and current
+            personnel know exactly where to go.
+          </p>
+        </div>
+
+        <div class="contact-card">
+          <div>
+            <h4>Join San Andreas EMS</h4>
+            <p>
+              We are looking for motivated, mature players who want to provide high-quality medical
+              roleplay and support the community. Minimum age, playtime and experience requirements
+              can be set by your staff team.
+            </p>
+            <div class="contact-tags">
+              <span class="contact-tag">Professional RP</span>
+              <span class="contact-tag">Active Command</span>
+              <span class="contact-tag">Training Provided</span>
+            </div>
+          </div>
+
+          <div class="contact-meta">
+            <div>
+              <span class="label">Application Link</span>
+              <span class="value">[Insert your Google Form / CAD / Website link here]</span>
+            </div>
+            <div>
+              <span class="label">Discord</span>
+              <span class="value">[Insert Discord Invite / Channel]</span>
+            </div>
+            <div>
+              <span class="label">Contact Email / Ticket</span>
+              <span class="value">[Insert contact method for questions or complaints]</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span><strong>SA-EMS</strong> • San Andreas Emergency Medical Services • Tactical Life Support</span>
+      <span>For roleplay purposes only. Not affiliated with any real-world EMS agency.</span>
+    </footer>
+  </div>
+</body>
+</html>
